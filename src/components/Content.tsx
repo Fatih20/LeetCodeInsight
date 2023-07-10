@@ -1,7 +1,23 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Elaboration from "./Elaboration";
+import { useQuery } from "@tanstack/react-query";
+import { allDiagramFetcher } from "@/utils/api";
+import { DiagramMiniListFetched } from "@/utils/types";
 
 function Content() {
+  const { data, status } = useQuery<DiagramMiniListFetched>({
+    queryKey: ["diagramList"],
+    queryFn: allDiagramFetcher,
+  });
+
+  useEffect(() => {
+    if (status === "success") {
+      console.log(data);
+    }
+  }, [status, data]);
+
   return (
     <section
       id="content"

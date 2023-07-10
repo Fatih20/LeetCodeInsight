@@ -1,4 +1,7 @@
+"use client";
+
 import React, { useState } from "react";
+import { StructuredText } from "react-datocms/structured-text";
 
 function Elaboration() {
   const [isQuery, setIsQuery] = useState(false);
@@ -36,7 +39,9 @@ function Elaboration() {
             </div>
           </div>
         ) : (
-          <div className="w-full text-xl">ksndcldscncldsc</div>
+          <div className="w-full text-xl">
+            <StructuredText data={null} />
+          </div>
         )}
       </div>
     </section>
