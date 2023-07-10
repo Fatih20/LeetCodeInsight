@@ -7,26 +7,40 @@ function Elaboration() {
   const [isQuery, setIsQuery] = useState(false);
   return (
     <section className="w-full flex flex-col items-center justify-start gap-4">
-      <div className="w-fit border-b-2 border-opacity-75 border-leetcode-border flex gap-2 font-bold pb-2">
+      <div className="w-fit border-b-2 border-opacity-75 border-leetcode-border flex gap-4">
         <button
-          className={`${
+          className={`flex flex-col gap-2 ${
             isQuery ? "opacity-100" : "opacity-50"
-          } btn btn-md btn-ghost  text-xl text-leetcode-orange normal-case`}
+          } text-xl  hover:text-white text-white normal-case`}
           onClick={() => setIsQuery(true)}
         >
-          {isQuery ? <h3>Query</h3> : <p className="text-[#eff1f6bf]">Query</p>}
+          {isQuery ? (
+            <h3>Query</h3>
+          ) : (
+            <p className="text-leetcode-text">Query</p>
+          )}
+          <div
+            className={`w-full h-1 ${
+              isQuery ? "bg-leetcode-underline" : "bg-transparent"
+            }`}
+          ></div>
         </button>
         <button
-          className={`${
+          className={`flex flex-col ${
             !isQuery ? "opacity-100" : "opacity-50"
-          } btn btn-md btn-ghost  text-xl text-leetcode-orange normal-case`}
+          } text-xl gap-2 hover:text-white text-white normal-case`}
           onClick={() => setIsQuery(false)}
         >
           {!isQuery ? (
             <h3>Insight</h3>
           ) : (
-            <p className="text-[#eff1f6bf]">Insight</p>
+            <p className="text-leetcode-text">Insight</p>
           )}
+          <div
+            className={`w-full h-1  ${
+              !isQuery ? "bg-leetcode-underline" : "bg-transparent"
+            }`}
+          ></div>
         </button>
       </div>
       <div className="flex flex-col items-center justify-start max-w-3xl w-full">

@@ -8,7 +8,11 @@ export type Titleable = {
   title: string;
 };
 
-export type DiagramMini = IDable & Titleable;
+const complexityList = ["Simple", "Moderate", "Complicated"] as const;
+
+type Complexity = (typeof complexityList)[number];
+
+export type DiagramMini = IDable & Titleable & { complexity: Complexity };
 
 export type Diagram<T> = {
   query: string;

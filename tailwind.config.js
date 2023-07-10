@@ -30,11 +30,13 @@ module.exports = {
       },
       backgroundColor: {
         "leetcode-bg": "rgb(26 26 26/var(--tw-bg-opacity))",
+        "leetcode-bg-lighter": "rgb(40 40 40/var(--tw-bg-opacity))",
         "leetcode-bg-even": "#ffffff12",
       },
       colors: {
         "leetcode-text": "#eff2f699",
         "leetcode-orange": "rgb(255 161 22/var(--tw-text-opacity))",
+        "leetcode-underline": "rgb(179 179 179/var(--tw-bg-opacity))",
       },
 
       borderColor: {

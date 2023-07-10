@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import Content from "./Content";
 import { useQuery } from "@tanstack/react-query";
 import { allDiagramFetcher } from "@/utils/api";
-import { DiagramMiniListFetched } from "@/utils/types";
+import { DiagramMini, DiagramMiniListFetched } from "@/utils/types";
 
 function Bottom() {
-  const [selectedDiagram, setSelectedDiagram] = useState(null as null | string);
+  const [selectedDiagram, setSelectedDiagram] = useState(
+    null as null | (DiagramMini & { nthDiagram: number })
+  );
   const { data, status } = useQuery<DiagramMiniListFetched>({
     queryKey: ["diagramList"],
     queryFn: allDiagramFetcher,
@@ -23,17 +25,38 @@ function Bottom() {
         <hr className="border-[1px] border-leetcode-border border-opacity-75" />
         {!data
           ? null
-          : data.allDiagrams.map(({ id, title }, index) => {
+          : data.allDiagrams.map((selectedDiagram, index) => {
               return (
-                <button onClick={() => setSelectedDiagram(id)} key={id}>
-                  <article className="truncate odd:bg-leetcode-bg even:bg-leetcode-bg-even w-full box-border px-2 py-4 rounded-sm">
-                    {index + 1}. {title}
-                  </article>
-                </button>
+                <div
+                  key={selectedDiagram.id}
+                  className="w-full flex items-start justify-start odd:bg-leetcode-bg even:bg-leetcode-bg-even box-border px-2 py-4 rounded-sm"
+                >
+                  <button
+                    className="w-full"
+                    onClick={() =>
+                      setSelectedDiagram({
+                        ...selectedDiagram,
+                        nthDiagram: index + 1,
+                      })
+                    }
+                  >
+                    <article className="truncate text-left">
+                      <p className="text-left">
+                        {index + 1}. {selectedDiagram.title}
+                      </p>
+                    </article>
+                  </button>
+                </div>
               );
             })}
       </div>
-      {selectedDiagram !== null && <Content id={selectedDiagram} />}
+      {selectedDiagram !== null && (
+        <Content
+          id={selectedDiagram.id}
+          title={selectedDiagram.title}
+          nthDiagram={selectedDiagram.nthDiagram}
+        />
+      )}
     </div>
   );
 }

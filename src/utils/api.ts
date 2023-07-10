@@ -27,7 +27,7 @@ export async function diagramFetcher<T>(
   id: number
 ): Promise<DiagramFetched<T>> {
   const query = `{
-    allDiagrams (filter : {id : {eq : ${id}}}) {
+    allDiagrams (filter : {id : {eq : ${id}}}, orderBy :_firstPublishedAt_ASC) {
       id
       title
       insight {
@@ -49,9 +49,10 @@ export async function diagramFetcher<T>(
 
 export async function allDiagramFetcher(): Promise<DiagramMiniListFetched> {
   const query = `{
-    allDiagrams {
+    allDiagrams (orderBy :_firstPublishedAt_ASC) {
       id
       title
+      complexity
   }
 }
       `;
