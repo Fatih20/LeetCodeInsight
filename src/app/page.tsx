@@ -5,6 +5,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { useInterval } from "@react-hooks-library/core";
 import Content from "@/components/Content";
+import Bottom from "@/components/Bottom";
 
 export default function Home() {
   const [shadeAmount, setShadeAmount] = useState(1);
@@ -45,7 +46,7 @@ export default function Home() {
             />
           </a>
         </section>
-        <Content />
+        <Bottom></Bottom>
       </main>
     </>
   );
