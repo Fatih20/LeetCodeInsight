@@ -1,9 +1,10 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useInterval } from "@react-hooks-library/core";
 import Content from "@/components/Content";
+import Image from "next/image";
 
 export default function Home() {
   const [shadeAmount, setShadeAmount] = useState(1);
@@ -17,18 +18,27 @@ export default function Home() {
     { paused: shadeAmount >= target }
   );
 
+  useEffect(() => {
+    (async () => {
+      console.log(await (await fetch(`/api/${1}`, {})).json());
+    })();
+  }, []);
+
   return (
     <>
       <main className="flex min-h-screen flex-col items-center w-full">
         <section
           id="title"
-          className="h-screen flex flex-col w-full items-center justify-start"
+          className="h-screen flex flex-col w-full items-center justify-start relative "
         >
-          <div className="flex flex-col flex-grow h-full items-center justify-center">
-            <h1 className="text-center text-4xl font-bold">
-              {shadeAmount} shades of
+          <div className="flex flex-col absolute inset-0 justify-center items-center"></div>
+          <div className="relative z-10 flex flex-col flex-grow h-full items-center justify-center">
+            <h1 className="text-center text-5xl font-bold">
+              {shadeAmount} <span className="">shades</span> of
               <br />
-              <span className="font-mono">LeetCode</span>
+              <span className="font-mono animate-lightColorChange">
+                LeetCode
+              </span>
             </h1>
           </div>
           <a

@@ -13,6 +13,31 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {},
+      keyframes: {
+        lightColorChange: {
+          "0%": { color: "#c6262e" },
+          "14%": { color: "#f37329" },
+          "28%": { color: "#f9c440" },
+          "42%": { color: "#68b723" },
+          "56%": { color: "#28bca3" },
+          "70%": { color: "#3689e6" },
+          "84%": { color: "#a56de2" },
+          "100%": { color: "#c6262e" },
+        },
+      },
+      animation: {
+        lightColorChange: "lightColorChange 20s ease-in-out infinite",
+      },
+      backgroundColor: {
+        "leetcode-bg": "rgb(26 26 26/var(--tw-bg-opacity))",
+      },
+      colors: {
+        "leetcode-orange": "rgb(255 161 22/var(--tw-text-opacity))",
+      },
+
+      borderColor: {
+        "leetcode-border": "rgb(61 61 61/var(--tw-border-opacity))",
+      },
     },
   },
   plugins: [require("daisyui")],
