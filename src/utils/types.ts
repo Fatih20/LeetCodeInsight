@@ -10,7 +10,7 @@ export type Titleable = {
 
 const complexityList = ["Simple", "Moderate", "Complicated"] as const;
 
-type Complexity = (typeof complexityList)[number];
+export type Complexity = (typeof complexityList)[number];
 
 export type DiagramMini = IDable & Titleable & { complexity: Complexity };
 

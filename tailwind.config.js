@@ -37,6 +37,9 @@ module.exports = {
         "leetcode-text": "#eff2f699",
         "leetcode-orange": "rgb(255 161 22/var(--tw-text-opacity))",
         "leetcode-underline": "rgb(179 179 179/var(--tw-bg-opacity))",
+        "leetcode-olive": "rgb(0 184 163/var(--tw-text-opacity))",
+        "leetcode-yellow": "rgb(255 192 30/var(--tw-text-opacity))",
+        "leetcode-red": "rgb(255 55 95/var(--tw-text-opacity))",
       },
 
       borderColor: {
