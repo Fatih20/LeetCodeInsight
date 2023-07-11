@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Providers from "./providers";
+import SelectedVisualizationProvider from "@/providers/SelectedVisualizationProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <Providers>
-        <body className={inter.className}>{children}</body>
+        <SelectedVisualizationProvider>
+          <body className={inter.className}>{children}</body>
+        </SelectedVisualizationProvider>
       </Providers>
     </html>
   );
