@@ -21,7 +21,7 @@ function VisualizationMenu({ showAfter }: { showAfter: boolean }) {
           : "opacity-0 -translate-y-5"
       } transition-all duration-500`}
     >
-      <div className="flex w-full pl-4 pr-10 box-border" role="rowheader">
+      <div className="flex w-full pl-4 pb-4 pr-10 box-border" role="rowheader">
         <p className="text-leetcode-text" aria-rowspan={1} aria-colspan={1}>
           Title
         </p>
@@ -31,7 +31,7 @@ function VisualizationMenu({ showAfter }: { showAfter: boolean }) {
           aria-rowspan={1}
           aria-colspan={1}
         >
-          Difficulty
+          Complexity
         </p>
       </div>
       <hr className="border-[1px] border-leetcode-border border-opacity-75" />
