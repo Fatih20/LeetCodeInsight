@@ -9,7 +9,7 @@ import VisualizationMenu from "@/components/VisualizationMenu";
 import { useSelectedVisualization } from "@/providers/SelectedVisualizationProvider";
 
 export default function Home() {
-  const [shadeAmount, setShadeAmount] = useState(1);
+  const [shadeAmount, setShadeAmount] = useState(0);
   const [showFatih, setShowFatih] = useState(false);
   const selectedViz = useSelectedVisualization();
 
@@ -34,17 +34,47 @@ export default function Home() {
             className="h-screen flex flex-col w-fit items-center justify-start relative box-border px-8"
           >
             <div className="flex flex-col absolute inset-0 justify-center items-center"></div>
-            <div className="relative z-10 flex flex-col flex-grow h-full items-center justify-center gap-3">
-              <h1 className="text-center text-5xl font-bold">
-                {shadeAmount} <br /> <span className="">shades</span> <br />
-                of
-                <br />
-                <a href="https://leetcode.com/problemset/all/" target="_blank">
-                  <span className="font-mono animate-lightColorChange">
-                    LeetCode
-                  </span>
-                </a>
-              </h1>
+            <div className="relative z-10 flex flex-col flex-grow h-full items-center justify-center gap-4">
+              {shadeAmount > 0 && (
+                <h1 className="text-center text-5xl shadow-lg font-bold">
+                  <span className="text-6xl">{shadeAmount}</span>
+                  <br />{" "}
+                  <span className="relative z-50">
+                    shades
+                    {[1, 2].map((number) => (
+                      <span
+                        key={number}
+                        className={`absolute -z-10 left-0 animate-lightColorChange blur-lg select-none transition-opacity duration-500 ${
+                          shadeAmount >= target ? "opacity-100" : "opacity-0"
+                        }`}
+                      >
+                        shades
+                      </span>
+                    ))}
+                  </span>{" "}
+                  <br />
+                  <span className="text-4xl">of</span>
+                  <br />
+                  <a
+                    href="https://leetcode.com/problemset/all/"
+                    target="_blank"
+                  >
+                    <span className="relative font-mono-leetcode z-50">
+                      LeetCode
+                      {[1, 2, 3].map((number) => (
+                        <span
+                          key={number}
+                          className={`absolute -z-10 left-0 animate-leetcodeColorChange blur-lg transition-opacity duration-500 ${
+                            shadeAmount >= target ? "opacity-100" : "opacity-0"
+                          }`}
+                        >
+                          LeetCode
+                        </span>
+                      ))}
+                    </span>
+                  </a>
+                </h1>
+              )}
               <p
                 className={`  text-center text-leetcode-text text-lg${
                   showFatih

@@ -33,9 +33,17 @@ module.exports = {
           "84%": { color: "#a56de2" },
           "100%": { color: "#c6262e" },
         },
+        leetcodeColorChange: {
+          "0%": { color: "#fea116" },
+          "25%": { color: "#a8a8a8" },
+          "50%": { color: "#000000" },
+          "75%": { color: "#a8a8a8" },
+          "100%": { color: "#fea116" },
+        },
       },
       animation: {
         lightColorChange: "lightColorChange 20s ease-in-out infinite",
+        leetcodeColorChange: "leetcodeColorChange 20s ease-in-out infinite",
       },
       backgroundColor: {
         "leetcode-bg": "rgb(26 26 26/var(--tw-bg-opacity))",
