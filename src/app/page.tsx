@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center w-full">
+      <main className="bg-leetcode-bg bg-opacity-100 flex min-h-screen flex-col items-center w-full">
         <div className="w-full flex">
           <section
             id="title"

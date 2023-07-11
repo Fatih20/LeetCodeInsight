@@ -32,6 +32,11 @@ module.exports = {
         "leetcode-bg": "rgb(26 26 26/var(--tw-bg-opacity))",
         "leetcode-bg-lighter": "rgb(40 40 40/var(--tw-bg-opacity))",
         "leetcode-bg-even": "#ffffff12",
+        "leetcode-olive": "rgb(0 184 163/var(--tw-bg-opacity))",
+        "leetcode-yellow": "rgb(255 192 30/var(--tw-bg-opacity))",
+        "leetcode-red": "rgb(255 55 95/var(--tw-bg-opacity))",
+        "leetcode-gray-2": "rgb(240 240 240/var(--tw-bg-opacity))",
+        "leetcode-dark-2": "rgb(48 48 48/var(--tw-bg-opacity))",
       },
       colors: {
         "leetcode-text": "#eff2f699",
@@ -40,6 +45,7 @@ module.exports = {
         "leetcode-olive": "rgb(0 184 163/var(--tw-text-opacity))",
         "leetcode-yellow": "rgb(255 192 30/var(--tw-text-opacity))",
         "leetcode-red": "rgb(255 55 95/var(--tw-text-opacity))",
+        "leetcode-code": "#d4d4d4",
       },
 
       borderColor: {

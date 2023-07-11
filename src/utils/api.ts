@@ -28,12 +28,13 @@ async function fetcher<T>(
 }
 
 export async function analysisDataCoreFetcher(
-  id: number
+  id: string
 ): Promise<{ allDiagrams: AnalysisDataCore[] }> {
   const query = `{
     allDiagrams (filter : {id : {eq : ${id}}}, orderBy :_firstPublishedAt_ASC) {
       id
       title
+      complexity
       insight {
         blocks
         links
@@ -47,6 +48,8 @@ export async function analysisDataCoreFetcher(
     query
   );
   if (error === null && result?.data) {
+    console.log(result.data.allDiagrams[0]);
+
     return result.data as { allDiagrams: AnalysisDataCore[] };
   }
 

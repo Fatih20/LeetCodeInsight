@@ -3,6 +3,7 @@ import { allDiagramFetcher } from "@/utils/api";
 import { AnalysisDataMiniListFetched } from "@/utils/types";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import ComplexityBadge from "./ComplexityBadge";
 
 function VisualizationMenu() {
   const setSelectedViz = useSetSelectedVisualization();
@@ -11,8 +12,23 @@ function VisualizationMenu() {
     queryFn: allDiagramFetcher,
   });
   return (
-    <div className="w-full max-h-screen overflow-y-scroll box-border bg-leetcode-bg bg-opacity-100 px-4 py-8">
-      <p className="text-leetcode-text">Title</p>
+    <div
+      role="table"
+      className="w-full max-h-screen overflow-y-scroll box-border  px-4 py-8"
+    >
+      <div className="flex w-full pl-4 pr-10 box-border" role="rowheader">
+        <p className="text-leetcode-text" aria-rowspan={1} aria-colspan={1}>
+          Title
+        </p>
+        <div className="flex-grow"></div>
+        <p
+          className="text-leetcode-text text-center w-20"
+          aria-rowspan={1}
+          aria-colspan={1}
+        >
+          Difficulty
+        </p>
+      </div>
       <hr className="border-[1px] border-leetcode-border border-opacity-75" />
       {!data
         ? null
@@ -20,23 +36,35 @@ function VisualizationMenu() {
             return (
               <div
                 key={selectedDiagram.id}
-                className="w-full flex items-start justify-start odd:bg-leetcode-bg even:bg-leetcode-bg-even box-border px-2 py-4 rounded-sm"
+                className="w-full flex items-start justify-start odd:bg-leetcode-bg even:bg-leetcode-bg-even box-border pl-4 pr-10 py-4 rounded-sm"
+                role="row"
               >
-                <button
-                  className="w-full"
-                  onClick={() => {
-                    setSelectedViz({
-                      ...selectedDiagram,
-                      nthDiagram: index + 1,
-                    });
-                  }}
-                >
-                  <article className="truncate text-left">
-                    <p className="text-left">
-                      {index + 1}. {selectedDiagram.title}
-                    </p>
-                  </article>
-                </button>
+                <a href={"#content"} className="group relative w-[600px]">
+                  {/* <div className="absolute bg-white rounded-lg text-black group-hover:block hidden top-full">
+                    {index + 1}. {selectedDiagram.title}
+                  </div> */}
+                  <button
+                    className="w-full"
+                    onClick={() => {
+                      setSelectedViz({
+                        ...selectedDiagram,
+                        nthDiagram: index + 1,
+                      });
+                    }}
+                  >
+                    <div className="truncate w-full text-left text-ellipsis">
+                      <p className="text-left">
+                        {index + 1}. {selectedDiagram.title}
+                      </p>
+                    </div>
+                  </button>
+                </a>
+                <div className="flex-grow"></div>
+                <ComplexityBadge
+                  complexity={selectedDiagram.complexity}
+                  noBackground={true}
+                  fixedWidth={true}
+                />
               </div>
             );
           })}
