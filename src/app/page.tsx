@@ -32,11 +32,14 @@ export default function Home() {
             <div className="flex flex-col absolute inset-0 justify-center items-center"></div>
             <div className="relative z-10 flex flex-col flex-grow h-full items-center justify-center">
               <h1 className="text-center text-5xl font-bold">
-                {shadeAmount} <br /> <span className="">shades</span> <br /> of
+                {shadeAmount} <br /> <span className="">shades</span> <br />
+                of
                 <br />
-                <span className="font-mono animate-lightColorChange">
-                  LeetCode
-                </span>
+                <a href="https://leetcode.com/problemset/all/" target="_blank">
+                  <span className="font-mono animate-lightColorChange">
+                    LeetCode
+                  </span>
+                </a>
               </h1>
             </div>
             {!selectedViz ? null : (
