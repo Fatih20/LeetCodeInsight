@@ -48,8 +48,6 @@ export async function analysisDataCoreFetcher(
     query
   );
   if (error === null && result?.data) {
-    console.log(result.data.allDiagrams[0]);
-
     return result.data as { allDiagrams: AnalysisDataCore[] };
   }
 

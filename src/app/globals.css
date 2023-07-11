@@ -25,3 +25,15 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+code .sql-hl-keyword {
+  @apply text-[#569cd6];
+}
+
+code .sql-hl-function {
+  @apply text-[#dcdcaa];
+}
+
+code .sql-hl-string {
+  @apply text-[#ce9178];
+}

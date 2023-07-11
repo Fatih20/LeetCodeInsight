@@ -1,11 +1,12 @@
 "use client";
 
-import { allDiagramFetcher, analysisDataCoreFetcher } from "@/utils/api";
-import { AnalysisDataCore, AnalysisDataMiniListFetched } from "@/utils/types";
+import { analysisDataCoreFetcher } from "@/utils/api";
+import { AnalysisDataCore } from "@/utils/types";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { StructuredText } from "react-datocms/structured-text";
 import ComplexityBadge from "./ComplexityBadge";
+import { highlight } from "sql-highlight";
 
 function Content({
   id,
@@ -81,7 +82,15 @@ function Content({
             )}
           </div>
           <div className="bg-leetcode-bg-lighter bg-opacity-100 w-1/2 rounded-none  before:hidden text-leetcode-code box-border p-4">
-            <code>{data?.allDiagrams[0].query}</code>
+            <pre>
+              <code
+                dangerouslySetInnerHTML={{
+                  __html: highlight(data?.allDiagrams[0].query ?? "", {
+                    html: true,
+                  }),
+                }}
+              />
+            </pre>
           </div>
         </div>
       </section>{" "}
