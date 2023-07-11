@@ -1,4 +1,8 @@
-import { DiagramFetched, DiagramMiniListFetched } from "./types";
+import {
+  AnalysisDataCore,
+  AnalysisDataMiniListFetched,
+  DiagramData,
+} from "./types";
 
 async function fetcher<T>(
   query: string
@@ -23,9 +27,9 @@ async function fetcher<T>(
   }
 }
 
-export async function diagramFetcher<T>(
+export async function analysisDataCoreFetcher(
   id: number
-): Promise<DiagramFetched<T>> {
+): Promise<{ allDiagrams: AnalysisDataCore[] }> {
   const query = `{
     allDiagrams (filter : {id : {eq : ${id}}}, orderBy :_firstPublishedAt_ASC) {
       id
@@ -39,15 +43,17 @@ export async function diagramFetcher<T>(
     }
   }
       `;
-  const { error, result } = await fetcher<DiagramFetched<T>>(query);
+  const { error, result } = await fetcher<{ allDiagrams: AnalysisDataCore[] }>(
+    query
+  );
   if (error === null && result?.data) {
-    return result.data as DiagramFetched<T>;
+    return result.data as { allDiagrams: AnalysisDataCore[] };
   }
 
-  throw new Error(`Failed to fetch home! ${id}`);
+  throw new Error(`Failed to fetch analysis data core with ${id}`);
 }
 
-export async function allDiagramFetcher(): Promise<DiagramMiniListFetched> {
+export async function allDiagramFetcher(): Promise<AnalysisDataMiniListFetched> {
   const query = `{
     allDiagrams (orderBy :_firstPublishedAt_ASC) {
       id
@@ -56,10 +62,29 @@ export async function allDiagramFetcher(): Promise<DiagramMiniListFetched> {
   }
 }
       `;
-  const { error, result } = await fetcher<DiagramMiniListFetched>(query);
+  const { error, result } = await fetcher<AnalysisDataMiniListFetched>(query);
   if (error === null && result?.data) {
-    return result.data as DiagramMiniListFetched;
+    return result.data as AnalysisDataMiniListFetched;
   }
 
-  throw new Error("Failed to fetch all diagrams!");
+  throw new Error("Failed to fetch all analysis data core!");
+}
+
+export async function diagramDataFetcher<T>(
+  id: number
+): Promise<{ allDiagrams: DiagramData<T>[] }> {
+  const query = `{
+    allDiagrams (filter : {id : {eq : ${id}}}) {
+      data
+    }
+  }
+      `;
+  const { error, result } = await fetcher<{ allDiagrams: DiagramData<T>[] }>(
+    query
+  );
+  if (error === null && result?.data) {
+    return result.data as { allDiagrams: DiagramData<T>[] };
+  }
+
+  throw new Error(`Failed to fetch diagram data with ${id}`);
 }

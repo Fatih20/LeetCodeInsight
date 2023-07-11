@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import Content from "./Content";
 import { useQuery } from "@tanstack/react-query";
 import { allDiagramFetcher } from "@/utils/api";
-import { DiagramMini, DiagramMiniListFetched } from "@/utils/types";
+import { AnalysisDataMini, AnalysisDataMiniListFetched } from "@/utils/types";
 
 function Bottom() {
   const [selectedDiagram, setSelectedDiagram] = useState(
-    null as null | (DiagramMini & { nthDiagram: number })
+    null as null | (AnalysisDataMini & { nthDiagram: number })
   );
-  const { data, status } = useQuery<DiagramMiniListFetched>({
+  const { data, status } = useQuery<AnalysisDataMiniListFetched>({
     queryKey: ["diagramList"],
     queryFn: allDiagramFetcher,
   });
