@@ -12,18 +12,17 @@ const complexityList = ["Simple", "Moderate", "Complicated"] as const;
 
 export type Complexity = (typeof complexityList)[number];
 
-export type DiagramMini = IDable & Titleable & { complexity: Complexity };
+export type AnalysisDataMini = IDable & Titleable & { complexity: Complexity };
 
-export type Diagram<T> = {
+export type AnalysisDataCore = {
   query: string;
   insight: StructuredText;
-  data: T;
-} & DiagramMini;
+} & AnalysisDataMini;
 
-export type DiagramMiniListFetched = {
-  allDiagrams: DiagramMini[];
+export type AnalysisDataMiniListFetched = {
+  allDiagrams: AnalysisDataMini[];
 };
 
-export type DiagramFetched<T> = {
-  allDiagrams: Diagram<T>[];
+export type DiagramData<T> = {
+  data: T;
 };
