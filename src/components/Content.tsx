@@ -80,10 +80,8 @@ function Content({
               <></>
             )}
           </div>
-          <div className="bg-leetcode-bg-lighter bg-opacity-100 w-1/2 rounded-none mockup-code before:hidden text-leetcode-code">
-            <pre>
-              <code>{data?.allDiagrams[0].query}</code>
-            </pre>
+          <div className="bg-leetcode-bg-lighter bg-opacity-100 w-1/2 rounded-none  before:hidden text-leetcode-code box-border p-4">
+            <code>{data?.allDiagrams[0].query}</code>
           </div>
         </div>
       </section>{" "}

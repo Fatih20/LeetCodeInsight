@@ -13,9 +13,9 @@ function ComplexityBadge({
   if (complexity === "Complicated") {
     return (
       <p
-        className={`w-fit py-1 px-[0.625rem] rounded-[21px] bg-leetcode-red ${
+        className={` py-1 px-[0.625rem] rounded-[21px] bg-leetcode-red ${
           noBackground ? "bg-opacity-0" : "bg-opacity-[0.15]"
-        } ${fixedWidth ? "w-20" : ""} text-opacity-100 text-leetcode-red`}
+        } ${fixedWidth ? "w-20" : "w-fit"} text-opacity-100 text-leetcode-red`}
       >
         {complexity}
       </p>
@@ -25,9 +25,11 @@ function ComplexityBadge({
   if (complexity === "Moderate") {
     return (
       <p
-        className={`w-fit py-1 px-[0.625rem] rounded-[21px] bg-leetcode-yellow ${
+        className={` py-1 px-[0.625rem] rounded-[21px] bg-leetcode-yellow ${
           noBackground ? "bg-opacity-0" : "bg-opacity-[0.15]"
-        } ${fixedWidth ? "w-20" : ""}  text-opacity-100 text-leetcode-yellow`}
+        } ${
+          fixedWidth ? "w-20" : "w-fit"
+        }  text-opacity-100 text-leetcode-yellow`}
       >
         {complexity}
       </p>
@@ -38,7 +40,10 @@ function ComplexityBadge({
     <p
       className={`w-fit py-1 px-[0.625rem] rounded-[21px] bg-leetcode-olive ${
         noBackground ? "bg-opacity-0" : "bg-opacity-[0.15]"
-      } text-opacity-100  text-leetcode-olive`}
+      } text-opacity-100  text-leetcode-olive
+      ${fixedWidth ? "w-20" : "w-fit"}
+
+      `}
     >
       {complexity}
     </p>

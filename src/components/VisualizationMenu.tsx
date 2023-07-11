@@ -5,16 +5,21 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import ComplexityBadge from "./ComplexityBadge";
 
-function VisualizationMenu() {
+function VisualizationMenu({ showAfter }: { showAfter: boolean }) {
   const setSelectedViz = useSetSelectedVisualization();
   const { data, status } = useQuery<AnalysisDataMiniListFetched>({
     queryKey: ["diagramList"],
     queryFn: allDiagramFetcher,
   });
+
   return (
     <div
       role="table"
-      className="w-full max-h-screen overflow-y-scroll box-border  px-4 py-8"
+      className={`w-full  max-h-screen overflow-y-scroll box-border  px-4 py-8  ${
+        showAfter && data
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 -translate-y-5"
+      } transition-all duration-500`}
     >
       <div className="flex w-full pl-4 pr-10 box-border" role="rowheader">
         <p className="text-leetcode-text" aria-rowspan={1} aria-colspan={1}>
@@ -40,9 +45,6 @@ function VisualizationMenu() {
                 role="row"
               >
                 <a href={"#content"} className="group relative w-[600px]">
-                  {/* <div className="absolute bg-white rounded-lg text-black group-hover:block hidden top-full">
-                    {index + 1}. {selectedDiagram.title}
-                  </div> */}
                   <button
                     className="w-full"
                     onClick={() => {
@@ -52,7 +54,7 @@ function VisualizationMenu() {
                       });
                     }}
                   >
-                    <div className="truncate w-full text-left text-ellipsis">
+                    <div className="truncate w-full text-ellipsis">
                       <p className="text-left">
                         {index + 1}. {selectedDiagram.title}
                       </p>
@@ -60,11 +62,13 @@ function VisualizationMenu() {
                   </button>
                 </a>
                 <div className="flex-grow"></div>
-                <ComplexityBadge
-                  complexity={selectedDiagram.complexity}
-                  noBackground={true}
-                  fixedWidth={true}
-                />
+                <div className="text-center">
+                  <ComplexityBadge
+                    complexity={selectedDiagram.complexity}
+                    noBackground={true}
+                    fixedWidth={true}
+                  />
+                </div>
               </div>
             );
           })}
