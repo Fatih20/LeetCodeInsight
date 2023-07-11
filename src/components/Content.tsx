@@ -23,7 +23,7 @@ function Content({
     queryFn: () => analysisDataCoreFetcher(id),
   });
   return (
-    <div className="h-screen w-full bg-leetcode-bg bg-opacity-100 box-border pt-10 px-2 flex flex-col justify-start items-center gap-6">
+    <div className="h-screen w-full bg-leetcode-bg bg-opacity-100 box-border pt-4 px-2 flex flex-col justify-start items-center gap-6">
       <section className="w-full flex flex-col items-start justify-start h-full">
         <div className="border-b-2 w-full border-opacity-75 border-leetcode-border flex items-end justify-start gap-6 bg-opacity-100 bg-leetcode-dark-2 px-4 rounded-t h-10">
           <button
