@@ -64,7 +64,7 @@ export default function Home() {
                       {[1, 2, 3].map((number) => (
                         <span
                           key={number}
-                          className={`absolute -z-10 left-0 animate-leetcodeColorChange blur-lg transition-opacity duration-500 ${
+                          className={`absolute -z-10 left-0 animate-leetcodeColorChange blur-lg transition-opacity duration-500 select-none ${
                             shadeAmount >= target ? "opacity-100" : "opacity-0"
                           }`}
                         >
