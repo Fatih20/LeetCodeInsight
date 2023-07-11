@@ -12,7 +12,16 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      fontFamily: {},
+      fontFamily: {
+        "mono-leetcode": [
+          "Monaco",
+          "Menlo",
+          "Ubuntu Mono",
+          "Consolas",
+          "source-code-pro",
+          "monospace",
+        ],
+      },
       keyframes: {
         lightColorChange: {
           "0%": { color: "#c6262e" },

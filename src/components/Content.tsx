@@ -74,7 +74,7 @@ function Content({
                   />
                 )}
                 <div className="text-base mt-4">
-                  <StructuredText data={data?.allDiagrams[0].insight} />C
+                  <StructuredText data={data?.allDiagrams[0].insight} />
                 </div>
               </div>
             ) : (
@@ -84,6 +84,7 @@ function Content({
           <div className="bg-leetcode-bg-lighter bg-opacity-100 w-1/2 rounded-none  before:hidden text-leetcode-code box-border p-4">
             <pre>
               <code
+                className="font-mono-leetcode"
                 dangerouslySetInnerHTML={{
                   __html: highlight(data?.allDiagrams[0].query ?? "", {
                     html: true,
