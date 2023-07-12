@@ -15,7 +15,7 @@ function ComplexityBadge({
       <p
         className={` py-1 px-[0.625rem] rounded-[21px] bg-leetcode-red ${
           noBackground ? "bg-opacity-0" : "bg-opacity-[0.15]"
-        } ${fixedWidth ? "w-20" : "w-fit"} text-opacity-100 text-leetcode-red`}
+        } ${fixedWidth ? "w-24" : "w-fit"} text-opacity-100 text-leetcode-red`}
       >
         {complexity}
       </p>
@@ -28,7 +28,7 @@ function ComplexityBadge({
         className={` py-1 px-[0.625rem] rounded-[21px] bg-leetcode-yellow ${
           noBackground ? "bg-opacity-0" : "bg-opacity-[0.15]"
         } ${
-          fixedWidth ? "w-20" : "w-fit"
+          fixedWidth ? "w-24" : "w-fit"
         }  text-opacity-100 text-leetcode-yellow`}
       >
         {complexity}
@@ -38,10 +38,10 @@ function ComplexityBadge({
 
   return (
     <p
-      className={`w-fit py-1 px-[0.625rem] rounded-[21px] bg-leetcode-olive ${
+      className={`py-1 px-[0.625rem] rounded-[21px] bg-leetcode-olive ${
         noBackground ? "bg-opacity-0" : "bg-opacity-[0.15]"
       } text-opacity-100  text-leetcode-olive
-      ${fixedWidth ? "w-20" : "w-fit"}
+      ${fixedWidth ? "w-24" : "w-fit"}
 
       `}
     >

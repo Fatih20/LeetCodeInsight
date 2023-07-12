@@ -27,7 +27,7 @@ function VisualizationMenu({ showAfter }: { showAfter: boolean }) {
         </p>
         <div className="flex-grow"></div>
         <p
-          className="text-leetcode-text text-center w-20"
+          className="text-leetcode-text text-center w-24"
           aria-rowspan={1}
           aria-colspan={1}
         >
@@ -62,7 +62,7 @@ function VisualizationMenu({ showAfter }: { showAfter: boolean }) {
                   </button>
                 </a>
                 <div className="flex-grow"></div>
-                <div className="text-center">
+                <div className="text-left self-start">
                   <ComplexityBadge
                     complexity={selectedDiagram.complexity}
                     noBackground={true}
