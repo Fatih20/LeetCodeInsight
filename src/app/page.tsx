@@ -7,13 +7,14 @@ import { useInterval } from "@react-hooks-library/core";
 import Bottom from "@/components/Bottom";
 import VisualizationMenu from "@/components/VisualizationMenu";
 import { useSelectedVisualization } from "@/providers/SelectedVisualizationProvider";
+import { toWords } from "number-to-words";
 
 export default function Home() {
   const [shadeAmount, setShadeAmount] = useState(0);
   const [showFatih, setShowFatih] = useState(false);
   const selectedViz = useSelectedVisualization();
 
-  const target = 25;
+  const target = 15;
   useInterval(
     () => {
       setShadeAmount((prev) => prev + 1);
@@ -24,6 +25,11 @@ export default function Home() {
     75,
     { paused: shadeAmount >= target }
   );
+
+  function produceNumberWord(number: number) {
+    const result = toWords(number);
+    return `${result.charAt(0).toUpperCase()}${result.slice(1)}`;
+  }
 
   return (
     <>
@@ -37,7 +43,11 @@ export default function Home() {
             <div className="relative z-10 flex flex-col flex-grow h-full items-center justify-center gap-4">
               {shadeAmount > 0 && (
                 <h1 className="text-center text-5xl shadow-lg font-bold">
-                  <span className="text-6xl">{shadeAmount}</span>
+                  <span className="">
+                    {shadeAmount === target
+                      ? produceNumberWord(shadeAmount)
+                      : shadeAmount}
+                  </span>
                   <br />{" "}
                   <span className="relative z-50">
                     shades
