@@ -1,4 +1,4 @@
-import { Complexity } from "@/utils/types";
+import { Complexity } from "@/types/types";
 import React from "react";
 
 function ComplexityBadge({
