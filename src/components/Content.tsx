@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { StructuredText } from "react-datocms/structured-text";
 import ComplexityBadge from "./ComplexityBadge";
 import { highlight } from "sql-highlight";
+import Diagrams from "./Diagrams/Diagrams";
 
 function Content({
   id,
@@ -78,7 +79,7 @@ function Content({
                 </div>
               </div>
             ) : (
-              <></>
+              <Diagrams nth={nthDiagram} />
             )}
           </div>
           <div className="bg-leetcode-bg-lighter bg-opacity-100 w-1/2 rounded-none  before:hidden text-leetcode-code box-border p-4">

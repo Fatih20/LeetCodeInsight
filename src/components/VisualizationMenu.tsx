@@ -50,7 +50,6 @@ function VisualizationMenu({ showAfter }: { showAfter: boolean }) {
                     onClick={() => {
                       setSelectedViz({
                         ...selectedDiagram,
-                        nthDiagram: index + 1,
                       });
                     }}
                   >

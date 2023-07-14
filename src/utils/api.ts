@@ -31,8 +31,9 @@ export async function analysisDataCoreFetcher(
   id: string
 ): Promise<{ allDiagrams: AnalysisDataCore[] }> {
   const query = `{
-    allDiagrams (filter : {id : {eq : ${id}}}, orderBy :_firstPublishedAt_ASC) {
+    allDiagrams (filter : {id : {eq : ${id}}}, orderBy : nth_ASC) {
       id
+      nth
       title
       complexity
       insight {
@@ -56,8 +57,9 @@ export async function analysisDataCoreFetcher(
 
 export async function allDiagramFetcher(): Promise<AnalysisDataMiniListFetched> {
   const query = `{
-    allDiagrams (orderBy :_firstPublishedAt_ASC) {
+    allDiagrams (orderBy : nth_ASC) {
       id
+      nth
       title
       complexity
   }
@@ -72,10 +74,10 @@ export async function allDiagramFetcher(): Promise<AnalysisDataMiniListFetched> 
 }
 
 export async function diagramDataFetcher<T>(
-  id: number
+  nth: number
 ): Promise<{ allDiagrams: DiagramData<T>[] }> {
   const query = `{
-    allDiagrams (filter : {id : {eq : ${id}}}) {
+    allDiagrams (filter : {nth : {eq : ${nth}}}) {
       data
     }
   }
@@ -87,5 +89,5 @@ export async function diagramDataFetcher<T>(
     return result.data as { allDiagrams: DiagramData<T>[] };
   }
 
-  throw new Error(`Failed to fetch diagram data with ${id}`);
+  throw new Error(`Failed to fetch diagram data with ${nth}}`);
 }

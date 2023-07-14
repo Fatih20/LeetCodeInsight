@@ -10,11 +10,11 @@ import {
 } from "react";
 
 const SelectedVisualizationContext = createContext(
-  null as null | (AnalysisDataMini & { nthDiagram: number })
+  null as null | AnalysisDataMini
 );
 
 const SetSelectedVisualizationContext = createContext<
-  Dispatch<SetStateAction<(AnalysisDataMini & { nthDiagram: number }) | null>>
+  Dispatch<SetStateAction<AnalysisDataMini | null>>
 >(() => {});
 
 export const useSelectedVisualization = () => {
@@ -31,7 +31,7 @@ function SelectedVisualizationProvider({
   children: React.ReactNode;
 }) {
   const [selectedVisualization, setSelectedVisualization] = useState(
-    null as null as null | (AnalysisDataMini & { nthDiagram: number })
+    null as null as null | AnalysisDataMini
   );
 
   return (

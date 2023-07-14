@@ -14,7 +14,7 @@ function Bottom() {
       <Content
         id={selectedViz.id}
         title={selectedViz.title}
-        nthDiagram={selectedViz.nthDiagram}
+        nthDiagram={selectedViz.nth}
       />
     </div>
   );
