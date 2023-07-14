@@ -58,7 +58,7 @@ function Content({
             ></div>
           </button>
         </div>
-        <div className="flex w-full flex-grow gap-2">
+        <div className="flex w-full flex-grow h-full gap-2 overflow-y-auto">
           <div
             className="flex flex-col items-center justify-start
         w-1/2 box-border p-5 bg-leetcode-bg-lighter bg-opacity-100

@@ -10,7 +10,7 @@ function Bottom() {
   }
 
   return (
-    <div className="flex w-full min-h-screen" id="content">
+    <div className="flex w-full h-screen" id="content">
       <Content
         id={selectedViz.id}
         title={selectedViz.title}
