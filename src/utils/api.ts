@@ -2,7 +2,7 @@ import {
   AnalysisDataCore,
   AnalysisDataMiniListFetched,
   DiagramData,
-} from "./types";
+} from "../types/types";
 
 async function fetcher<T>(
   query: string

@@ -1,13 +1,13 @@
 "use client";
 
 import { analysisDataCoreFetcher } from "@/utils/api";
-import { AnalysisDataCore } from "@/utils/types";
+import { AnalysisDataCore } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { StructuredText } from "react-datocms/structured-text";
 import ComplexityBadge from "./ComplexityBadge";
 import { highlight } from "sql-highlight";
-import Diagrams from "./Diagrams/Diagrams";
+import Diagrams from "./Diagrams/Peripheral/Diagrams";
 
 function Content({
   id,

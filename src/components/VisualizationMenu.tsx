@@ -1,6 +1,6 @@
 import { useSetSelectedVisualization } from "@/providers/SelectedVisualizationProvider";
 import { allDiagramFetcher } from "@/utils/api";
-import { AnalysisDataMiniListFetched } from "@/utils/types";
+import { AnalysisDataMiniListFetched } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import ComplexityBadge from "./ComplexityBadge";

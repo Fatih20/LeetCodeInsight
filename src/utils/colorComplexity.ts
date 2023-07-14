@@ -1,4 +1,4 @@
-import { Complexity } from "./types";
+import { Complexity } from "../types/types";
 
 export default function colorComplexity(c: Complexity) {
   switch (c) {

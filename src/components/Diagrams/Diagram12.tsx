@@ -1,5 +1,5 @@
 import { diagramDataFetcher } from "@/utils/api";
-import { DiagramData, RawDiagramData } from "@/utils/types";
+import { DiagramData, RawDiagramData } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import {
@@ -12,17 +12,18 @@ import {
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
+import PieChartWrapper from "./Peripheral/PieChartWrapper";
 
-export type ThirteenthDiagram = {
+export type Diagram12 = {
   acceptance_rate_category: string;
   amount: number;
 }[];
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function Thirteenth() {
-  const { data, status } = useQuery<RawDiagramData<ThirteenthDiagram>>({
-    queryFn: async () => await diagramDataFetcher<ThirteenthDiagram>(13),
+export default function Diagram12() {
+  const { data, status } = useQuery<RawDiagramData<Diagram12>>({
+    queryFn: async () => await diagramDataFetcher<Diagram12>(12),
     queryKey: ["thirteenthDiagram"],
   });
 
@@ -41,13 +42,13 @@ export default function Thirteenth() {
     ),
     datasets: [
       {
-        label: "Amount of Problems",
+        label: "Amount of Problems (n)",
         data: processedData.map(({ amount }) => amount),
         backgroundColor: [colors[3], colors[2], colors[5], colors[0]],
         borderWidth: 0,
       },
       {
-        label: "Percentage of Problems",
+        label: "Percentage of Problems (%)",
         data: processedData.map(({ amount }) => (amount / sum) * 100),
         backgroundColor: [colors[3], colors[2], colors[5], colors[0]],
         borderWidth: 2,
@@ -56,19 +57,21 @@ export default function Thirteenth() {
   } as ChartData<"pie", number[], unknown>;
 
   return (
-    <Pie
-      data={diagramData}
-      options={{
-        plugins: {
-          legend: {
-            labels: {
-              pointStyle: "circle",
-              usePointStyle: true,
-              color: "#ffffff",
+    <PieChartWrapper>
+      <Pie
+        data={diagramData}
+        options={{
+          plugins: {
+            legend: {
+              labels: {
+                pointStyle: "circle",
+                usePointStyle: true,
+                color: "#ffffff",
+              },
             },
           },
-        },
-      }}
-    ></Pie>
+        }}
+      ></Pie>
+    </PieChartWrapper>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { AnalysisDataMini } from "@/utils/types";
+import { AnalysisDataMini } from "@/types/types";
 import {
   useContext,
   useState,
