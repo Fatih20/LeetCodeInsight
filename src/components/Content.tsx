@@ -82,10 +82,10 @@ function Content({
               <Diagrams nth={nthDiagram} />
             )}
           </div>
-          <div className="bg-leetcode-bg-lighter bg-opacity-100 w-1/2 rounded-none  before:hidden text-leetcode-code box-border p-4">
+          <div className="bg-leetcode-bg-lighter bg-opacity-100 w-1/2 rounded-none  before:hidden text-leetcode-code box-border p-4 overflow-y-auto">
             <pre>
               <code
-                className="font-mono-leetcode"
+                className="font-mono-leetcode whitespace-break-spaces"
                 dangerouslySetInnerHTML={{
                   __html: highlight(data?.allDiagrams[0].query ?? "", {
                     html: true,
