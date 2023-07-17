@@ -4,13 +4,15 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import {
   Chart as ChartJS,
-  ArcElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
   Tooltip,
   Legend,
-  ChartData,
-  ChartOptions,
 } from "chart.js";
-import { Pie } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
 import PieChartWrapper from "./Peripheral/PieChartWrapper";
 
@@ -19,8 +21,15 @@ export type Diagram4 = {
   log_number_of_submission: number;
 }[];
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 export default function Diagram4() {
   const { data, status } = useQuery<RawDiagramData<Diagram4>>({
     queryFn: async () => await diagramDataFetcher<Diagram4>(4),
@@ -31,5 +40,74 @@ export default function Diagram4() {
     return <></>;
   }
 
-  return <></>;
+  const dataP = data.allDiagrams[0].data;
+
+  const labels = dataP.map(({ number }) => number);
+
+  const dataDiagram = {
+    labels,
+    datasets: [
+      {
+        label: "log(number of submissions)",
+        data: dataP.map(
+          ({ log_number_of_submission }) => log_number_of_submission
+        ),
+        colors: "#ffffff",
+        backgroundColor: colors[3],
+      },
+    ],
+  };
+
+  return (
+    <div className="w-full h-full">
+      <Line
+        options={{
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: "y" as const,
+          scales: {
+            x: {
+              border: {
+                color: "#fff",
+              },
+              ticks: {
+                color: "#fff",
+              },
+              grid: {
+                color: "#ffffff53",
+              },
+            },
+            y: {
+              border: {
+                color: "#fff",
+              },
+              ticks: {
+                color: "#fff",
+              },
+              grid: {
+                color: "#ffffff53",
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              position: "top" as const,
+              labels: {
+                color: "#fff",
+                pointStyle: "circle",
+                usePointStyle: true,
+              },
+              title: {
+                text: "Problem number and log(number of submissions)",
+                color: "#fff",
+                position: "center",
+                display: true,
+              },
+            },
+          },
+        }}
+        data={dataDiagram}
+      />
+    </div>
+  );
 }

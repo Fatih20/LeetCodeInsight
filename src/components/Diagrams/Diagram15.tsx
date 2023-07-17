@@ -4,15 +4,24 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import {
   Chart as ChartJS,
-  ArcElement,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
   Tooltip,
   Legend,
-  ChartData,
-  ChartOptions,
 } from "chart.js";
-import { Pie } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
-import PieChartWrapper from "./Peripheral/PieChartWrapper";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 export type Diagram15 = {
   solution_type: SolutionType;
@@ -20,8 +29,6 @@ export type Diagram15 = {
   max_ratio: Number;
   min_ratio: Number;
 }[];
-
-ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Diagram15() {
   const { data, status } = useQuery<RawDiagramData<Diagram15>>({
@@ -33,5 +40,85 @@ export default function Diagram15() {
     return <></>;
   }
 
-  return <></>;
+  const dataP = data.allDiagrams[0].data;
+
+  const diagramLike = {
+    labels: dataP.map(({ solution_type }) => solution_type),
+    datasets: [
+      {
+        label: "Average",
+        data: dataP.map(({ average_ratio }) => average_ratio),
+        colors: "#ffffff",
+        backgroundColor: colors[2],
+      },
+      {
+        label: "Max",
+        data: dataP.map(({ max_ratio }) => max_ratio),
+        colors: "#ffffff",
+        backgroundColor: colors[3],
+        hidden: true,
+      },
+      {
+        label: "Min",
+        data: dataP.map(({ min_ratio }) => min_ratio),
+        colors: "#ffffff",
+        backgroundColor: colors[0],
+        hidden: true,
+      },
+    ],
+  };
+
+  return (
+    <div className="w-full h-full">
+      <Bar
+        options={{
+          scales: {
+            x: {
+              border: {
+                color: "#fff",
+              },
+              ticks: {
+                color: "#fff",
+              },
+              grid: {},
+            },
+            y: {
+              border: {
+                color: "#fff",
+              },
+              ticks: {
+                color: "#fff",
+              },
+              grid: {},
+            },
+          },
+          indexAxis: "y" as const,
+          elements: {
+            bar: {
+              borderWidth: 2,
+            },
+          },
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            tooltip: {},
+            legend: {
+              position: "right" as const,
+              labels: {
+                color: "#fff",
+                pointStyle: "circle",
+                usePointStyle: true,
+              },
+            },
+            title: {
+              color: "#ffffff",
+              display: true,
+              text: "Solution Type and Solution/Submission Ratio",
+            },
+          },
+        }}
+        data={diagramLike}
+      />
+    </div>
+  );
 }
