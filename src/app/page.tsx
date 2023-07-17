@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex flex-col h-screen items-center justify-center w-full bg-leetcode-bg box-border p-5 gap-4">
+      <main className="flex flex-col h-screen items-center justify-center w-full bg-leetcode-bg box-border p-5 gap-4 lg:hidden">
         <h1 className="text-center text-5xl shadow-lg font-bold">Sorry!</h1>
         <p className="text-xl text-center">
           This site is not available on mobile. Please open this site on a
