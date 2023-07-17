@@ -33,7 +33,15 @@ export default function Home() {
 
   return (
     <>
-      <main className="bg-leetcode-bg bg-opacity-100 flex min-h-screen flex-col items-center w-full">
+      <main className="flex flex-col h-screen items-center justify-center w-full bg-leetcode-bg box-border p-5 gap-4">
+        <h1 className="text-center text-5xl shadow-lg font-bold">Sorry!</h1>
+        <p className="text-xl text-center">
+          This site is not available on mobile. Please open this site on a
+          desktop. <br />
+          Thank you!
+        </p>
+      </main>
+      <main className="bg-leetcode-bg bg-opacity-100 min-h-screen flex-col items-center w-full hidden lg:flex">
         <div className="w-full flex">
           <section
             id="title"
