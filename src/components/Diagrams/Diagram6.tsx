@@ -68,46 +68,44 @@ export default function Diagram6() {
 
   return (
     <ChartWrapper>
-      <div className="flex w-full flex-col items-center justify-start gap-5">
-        <Pie
-          data={diagramDataPremium}
-          options={{
-            plugins: {
-              legend: {
-                title: {
-                  text: "Premium Problems",
-                  color: "#ffffff",
-                  display: true,
-                },
-                labels: {
-                  pointStyle: "circle",
-                  usePointStyle: true,
-                  color: "#ffffff",
-                },
+      <Pie
+        data={diagramDataPremium}
+        options={{
+          plugins: {
+            legend: {
+              title: {
+                text: "Premium Problems",
+                color: "#ffffff",
+                display: true,
+              },
+              labels: {
+                pointStyle: "circle",
+                usePointStyle: true,
+                color: "#ffffff",
               },
             },
-          }}
-        ></Pie>
-        <Pie
-          data={diagramDataFree}
-          options={{
-            plugins: {
-              legend: {
-                title: {
-                  text: "Premium Problems",
-                  color: "#ffffff",
-                  display: true,
-                },
-                labels: {
-                  pointStyle: "circle",
-                  usePointStyle: true,
-                  color: "#ffffff",
-                },
+          },
+        }}
+      ></Pie>
+      <Pie
+        data={diagramDataFree}
+        options={{
+          plugins: {
+            legend: {
+              title: {
+                text: "Free Problems",
+                color: "#ffffff",
+                display: true,
+              },
+              labels: {
+                pointStyle: "circle",
+                usePointStyle: true,
+                color: "#ffffff",
               },
             },
-          }}
-        ></Pie>
-      </div>
+          },
+        }}
+      ></Pie>
     </ChartWrapper>
   );
 }
