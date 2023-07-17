@@ -53,7 +53,7 @@ export default function Diagram4() {
           ({ log_number_of_submission }) => log_number_of_submission
         ),
         colors: "#ffffff",
-        backgroundColor: colors[3],
+        backgroundColor: colors.grape,
       },
     ],
   };
@@ -87,6 +87,11 @@ export default function Diagram4() {
               grid: {
                 color: "#ffffff53",
               },
+            },
+          },
+          elements: {
+            point: {
+              radius: 1,
             },
           },
           plugins: {

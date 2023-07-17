@@ -50,19 +50,19 @@ export default function Diagram15() {
         label: "Average",
         data: dataP.map(({ average_ratio }) => average_ratio),
         colors: "#ffffff",
-        backgroundColor: colors[2],
+        backgroundColor: colors.yellow,
       },
       {
         label: "Max",
         data: dataP.map(({ max_ratio }) => max_ratio),
         colors: "#ffffff",
-        backgroundColor: colors[3],
+        backgroundColor: colors.lime,
       },
       {
         label: "Min",
         data: dataP.map(({ min_ratio }) => min_ratio),
         colors: "#ffffff",
-        backgroundColor: colors[0],
+        backgroundColor: colors.red,
       },
     ],
   };

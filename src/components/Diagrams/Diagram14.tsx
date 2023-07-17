@@ -63,13 +63,13 @@ export default function Diagram14() {
       {
         label: "Amount of Problems (n)",
         data: easyData.map(({ amount }) => amount),
-        backgroundColor: [colors[0], colors[5], colors[2], colors[3]],
+        backgroundColor: [colors.red, colors.mint, colors.yellow, colors.lime],
         borderWidth: 0,
       },
       {
         label: "Percentage of Problems (%)",
         data: easyData.map(({ amount }) => (amount / easySum) * 100),
-        backgroundColor: [colors[0], colors[5], colors[2], colors[3]],
+        backgroundColor: [colors.red, colors.mint, colors.yellow, colors.lime],
         borderWidth: 2,
       },
     ],
@@ -83,13 +83,13 @@ export default function Diagram14() {
       {
         label: "Amount of Problems (n)",
         data: mediumData.map(({ amount }) => amount),
-        backgroundColor: [colors[0], colors[5], colors[2], colors[3]],
+        backgroundColor: [colors.red, colors.mint, colors.yellow, colors.lime],
         borderWidth: 0,
       },
       {
         label: "Percentage of Problems (%)",
         data: mediumData.map(({ amount }) => (amount / mediumSum) * 100),
-        backgroundColor: [colors[0], colors[5], colors[2], colors[3]],
+        backgroundColor: [colors.red, colors.mint, colors.yellow, colors.lime],
         borderWidth: 2,
       },
     ],
@@ -103,13 +103,13 @@ export default function Diagram14() {
       {
         label: "Amount of Problems (n)",
         data: hardData.map(({ amount }) => amount),
-        backgroundColor: [colors[0], colors[5], colors[2], colors[3]],
+        backgroundColor: [colors.red, colors.mint, colors.yellow, colors.lime],
         borderWidth: 0,
       },
       {
         label: "Percentage of Problems (%)",
         data: hardData.map(({ amount }) => (amount / hardSum) * 100),
-        backgroundColor: [colors[0], colors[5], colors[2], colors[3]],
+        backgroundColor: [colors.red, colors.mint, colors.yellow, colors.lime],
         borderWidth: 2,
       },
     ],

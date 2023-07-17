@@ -1,14 +1,14 @@
-export const colors = [
-  "#c6262e",
-  "#f37329",
-  "#f9c440",
-  "#68b723",
-  "#28bca3",
-  "#3689e6",
-  "#a56de2",
-  "#de3e80",
-  "#715344",
-  "#abacae",
-  "#485a6c",
-  "#333333",
-];
+export const colors = {
+  red: "#c6262e",
+  orange: "#f37329",
+  yellow: "#f9c440",
+  lime: "#68b723",
+  mint: "#28bca3",
+  blueberry: "#3689e6",
+  grape: "#a56de2",
+  bubblegum: "#de3e80",
+  cocoa: "#715344",
+  silver: "#abacae",
+  slate: "#485a6c",
+  black: "#333333",
+};

@@ -58,7 +58,7 @@ export default function Diagram13() {
         label: "Very High Acceptance to Total Ratio",
         data: dataEasiest.map(({ easy_ratio }) => easy_ratio),
         colors: "#ffffff",
-        backgroundColor: colors[7],
+        backgroundColor: colors.bubblegum,
       },
       {
         label: "Number of Very High Acceptance Problems",
@@ -67,7 +67,7 @@ export default function Diagram13() {
             very_high_acceptance_problem_count
         ),
         colors: "#ffffff",
-        backgroundColor: colors[3],
+        backgroundColor: colors.mint,
         hidden: true,
       },
       {
@@ -76,7 +76,7 @@ export default function Diagram13() {
           ({ high_acceptance_problem_count }) => high_acceptance_problem_count
         ),
         colors: "#ffffff",
-        backgroundColor: colors[2],
+        backgroundColor: colors.lime,
         hidden: true,
       },
       {
@@ -85,7 +85,7 @@ export default function Diagram13() {
           ({ low_acceptance_problem_count }) => low_acceptance_problem_count
         ),
         colors: "#ffffff",
-        backgroundColor: colors[0],
+        backgroundColor: colors.yellow,
         hidden: true,
       },
       {
@@ -95,14 +95,14 @@ export default function Diagram13() {
             very_low_acceptance_problem_count
         ),
         colors: "#ffffff",
-        backgroundColor: colors[0],
+        backgroundColor: colors.red,
         hidden: true,
       },
       {
         label: "Number of Problems",
         data: dataEasiest.map(({ problem_count }) => problem_count),
         colors: "#ffffff",
-        backgroundColor: colors[5],
+        backgroundColor: colors.blueberry,
         hidden: true,
       },
     ],
@@ -115,7 +115,7 @@ export default function Diagram13() {
         label: "Very Low Acceptance to Total Ratio",
         data: dataHardest.map(({ hard_ratio }) => hard_ratio),
         colors: "#ffffff",
-        backgroundColor: colors[7],
+        backgroundColor: colors.bubblegum,
       },
       {
         label: "Number of Very High Acceptance Problems",
@@ -124,7 +124,7 @@ export default function Diagram13() {
             very_high_acceptance_problem_count
         ),
         colors: "#ffffff",
-        backgroundColor: colors[3],
+        backgroundColor: colors.mint,
         hidden: true,
       },
       {
@@ -133,7 +133,7 @@ export default function Diagram13() {
           ({ high_acceptance_problem_count }) => high_acceptance_problem_count
         ),
         colors: "#ffffff",
-        backgroundColor: colors[2],
+        backgroundColor: colors.lime,
         hidden: true,
       },
       {
@@ -142,7 +142,7 @@ export default function Diagram13() {
           ({ low_acceptance_problem_count }) => low_acceptance_problem_count
         ),
         colors: "#ffffff",
-        backgroundColor: colors[0],
+        backgroundColor: colors.yellow,
         hidden: true,
       },
       {
@@ -152,14 +152,14 @@ export default function Diagram13() {
             very_low_acceptance_problem_count
         ),
         colors: "#ffffff",
-        backgroundColor: colors[0],
+        backgroundColor: colors.red,
         hidden: true,
       },
       {
         label: "Number of Problems",
         data: dataHardest.map(({ problem_count }) => problem_count),
         colors: "#ffffff",
-        backgroundColor: colors[5],
+        backgroundColor: colors.blueberry,
         hidden: true,
       },
     ],

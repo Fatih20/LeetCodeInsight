@@ -39,13 +39,13 @@ export default function Diagram1() {
       {
         label: "Amount of Problems (n)",
         data: processedData.map(({ amount }) => amount),
-        backgroundColor: [colors[3], colors[0], colors[2]],
+        backgroundColor: [colors.lime, colors.red, colors.yellow],
         borderWidth: 0,
       },
       {
         label: "Percentage of Problems (%)",
         data: processedData.map(({ amount }) => (amount / sum) * 100),
-        backgroundColor: [colors[3], colors[0], colors[2]],
+        backgroundColor: [colors.lime, colors.red, colors.yellow],
         borderWidth: 2,
       },
     ],

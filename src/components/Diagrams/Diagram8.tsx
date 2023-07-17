@@ -53,13 +53,13 @@ export default function Diagram8() {
       {
         label: "Amount of Problems (n)",
         data: freeData.map(({ amount }) => amount),
-        backgroundColor: [colors[3], colors[0], colors[2]],
+        backgroundColor: [colors.lime, colors.red, colors.yellow],
         borderWidth: 0,
       },
       {
         label: "Percentage of Problems (%)",
         data: freeData.map(({ amount }) => (amount / freeSum) * 100),
-        backgroundColor: [colors[3], colors[0], colors[2]],
+        backgroundColor: [colors.lime, colors.red, colors.yellow],
         borderWidth: 2,
       },
     ],
@@ -71,13 +71,13 @@ export default function Diagram8() {
       {
         label: "Amount of Problems (n)",
         data: premiumData.map(({ amount }) => amount),
-        backgroundColor: [colors[3], colors[0], colors[2]],
+        backgroundColor: [colors.lime, colors.red, colors.yellow],
         borderWidth: 0,
       },
       {
         label: "Percentage of Problems (%)",
         data: premiumData.map(({ amount }) => (amount / premiumSum) * 100),
-        backgroundColor: [colors[3], colors[0], colors[2]],
+        backgroundColor: [colors.lime, colors.red, colors.yellow],
         borderWidth: 2,
       },
     ],

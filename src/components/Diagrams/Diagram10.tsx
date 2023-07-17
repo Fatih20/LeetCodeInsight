@@ -51,23 +51,23 @@ export default function Diagram10() {
     labels: dataLikes.map(({ tag_name }) => tag_name),
     datasets: [
       {
-        label: "Ratio",
+        label: "Liked-Total Ratio",
         data: dataLikes.map(({ ratio }) => ratio),
         colors: "#ffffff",
-        backgroundColor: colors[2],
+        backgroundColor: colors.bubblegum,
       },
       {
         label: "Number of Liked Problems",
         data: dataLikes.map(({ liked_problem_count }) => liked_problem_count),
         colors: "#ffffff",
-        backgroundColor: colors[3],
+        backgroundColor: colors.lime,
         hidden: true,
       },
       {
         label: "Number of Problems",
         data: dataLikes.map(({ problem_count }) => problem_count),
         colors: "#ffffff",
-        backgroundColor: colors[5],
+        backgroundColor: colors.blueberry,
         hidden: true,
       },
     ],
@@ -77,10 +77,10 @@ export default function Diagram10() {
     labels: dataDislikes.map(({ tag_name }) => tag_name),
     datasets: [
       {
-        label: "Ratio",
+        label: "Liked-Total Ratio",
         data: dataDislikes.map(({ ratio }) => ratio),
         colors: "#ffffff",
-        backgroundColor: colors[2],
+        backgroundColor: colors.bubblegum,
       },
       {
         label: "Number of Disliked Problems",
@@ -88,14 +88,14 @@ export default function Diagram10() {
           ({ disliked_problem_count }) => disliked_problem_count
         ),
         colors: "#ffffff",
-        backgroundColor: colors[0],
+        backgroundColor: colors.red,
         hidden: true,
       },
       {
         label: "Number of Problems",
         data: dataDislikes.map(({ problem_count }) => problem_count),
         colors: "#ffffff",
-        backgroundColor: colors[5],
+        backgroundColor: colors.blueberry,
         hidden: true,
       },
     ],

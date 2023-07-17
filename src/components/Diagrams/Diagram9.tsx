@@ -34,18 +34,20 @@ export default function Diagram9() {
     .reduce((prev, now) => prev + now);
 
   const diagramData = {
-    labels: processedData.map(({ category }) => category),
+    labels: processedData.map(({ category }) => {
+      return `${category.charAt(0).toUpperCase()}${category.substring(1)}`;
+    }),
     datasets: [
       {
         label: "Amount of Problems (n)",
         data: processedData.map(({ amount }) => amount),
         backgroundColor: [
-          colors[3],
-          colors[0],
-          colors[2],
-          colors[4],
-          colors[6],
-          colors[5],
+          colors.silver,
+          colors.slate,
+          colors.grape,
+          colors.blueberry,
+          colors.yellow,
+          colors.lime,
         ],
         borderWidth: 0,
       },
@@ -53,12 +55,12 @@ export default function Diagram9() {
         label: "Percentage of Problems (%)",
         data: processedData.map(({ amount }) => (amount / sum) * 100),
         backgroundColor: [
-          colors[3],
-          colors[0],
-          colors[2],
-          colors[4],
-          colors[6],
-          colors[5],
+          colors.silver,
+          colors.slate,
+          colors.grape,
+          colors.blueberry,
+          colors.yellow,
+          colors.lime,
         ],
         borderWidth: 2,
       },

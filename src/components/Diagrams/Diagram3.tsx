@@ -61,7 +61,7 @@ export default function Diagram3() {
       {
         label: "Percentage of Problems (%)",
         data: easyData.map(({ amount }) => (amount / easySum) * 100),
-        backgroundColor: [colors[0], colors[2], colors[3]],
+        backgroundColor: [colors.slate, colors.blueberry, colors.bubblegum],
         borderWidth: 0,
       },
     ],
@@ -73,7 +73,7 @@ export default function Diagram3() {
       {
         label: "Percentage of Problems (%)",
         data: mediumData.map(({ amount }) => (amount / mediumSum) * 100),
-        backgroundColor: [colors[0], colors[2], colors[3]],
+        backgroundColor: [colors.slate, colors.blueberry, colors.bubblegum],
         borderWidth: 0,
       },
     ],
@@ -85,7 +85,7 @@ export default function Diagram3() {
       {
         label: "Percentage of Problems (%)",
         data: hardData.map(({ amount }) => (amount / hardSum) * 100),
-        backgroundColor: [colors[0], colors[2], colors[3]],
+        backgroundColor: [colors.slate, colors.blueberry, colors.bubblegum],
         borderWidth: 0,
       },
     ],

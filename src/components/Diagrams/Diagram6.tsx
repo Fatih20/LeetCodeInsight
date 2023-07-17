@@ -48,7 +48,7 @@ export default function Diagram6() {
         data: premiumData.map(
           ({ normalized_amount }) => normalized_amount * 100
         ),
-        backgroundColor: [colors[0], colors[2], colors[3]],
+        backgroundColor: [colors.slate, colors.blueberry, colors.bubblegum],
         borderWidth: 0,
       },
     ],
@@ -60,7 +60,7 @@ export default function Diagram6() {
       {
         label: "Percentage of Problems (%)",
         data: freeData.map(({ normalized_amount }) => normalized_amount * 100),
-        backgroundColor: [colors[0], colors[2], colors[3]],
+        backgroundColor: [colors.slate, colors.blueberry, colors.bubblegum],
         borderWidth: 0,
       },
     ],
