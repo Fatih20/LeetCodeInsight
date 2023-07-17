@@ -22,7 +22,7 @@ export default function Home() {
         setShowFatih(true);
       }
     },
-    75,
+    200,
     { paused: shadeAmount >= target }
   );
 

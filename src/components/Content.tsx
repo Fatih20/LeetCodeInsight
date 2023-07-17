@@ -74,7 +74,7 @@ function Content({
                     complexity={data?.allDiagrams[0].complexity}
                   />
                 )}
-                <div className="text-base mt-4">
+                <div className="text-base mt-4 summary-container">
                   <StructuredText data={data?.allDiagrams[0].insight} />
                 </div>
               </div>
