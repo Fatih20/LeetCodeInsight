@@ -12,7 +12,7 @@ import {
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
-import PieChartWrapper from "./Peripheral/PieChartWrapper";
+import ChartWrapper from "./Peripheral/ChartWrapper";
 
 export type Diagram3 = {
   solution_type: SolutionType;
@@ -25,7 +25,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function Diagram3() {
   const { data, status } = useQuery<RawDiagramData<Diagram3>>({
     queryFn: async () => await diagramDataFetcher<Diagram3>(3),
-    queryKey: ["sixthDiagram"],
+    queryKey: ["thirdDiagram"],
   });
 
   if (status !== "success" || !data) {
@@ -92,7 +92,7 @@ export default function Diagram3() {
   } as ChartData<"pie", number[], unknown>;
 
   return (
-    <PieChartWrapper whatToShow={[false, true]}>
+    <ChartWrapper whatToShow={[false, true]}>
       <div className="flex w-full flex-col items-center justify-start gap-5">
         <Pie
           data={diagramDataEasy}
@@ -152,6 +152,6 @@ export default function Diagram3() {
           }}
         ></Pie>
       </div>
-    </PieChartWrapper>
+    </ChartWrapper>
   );
 }

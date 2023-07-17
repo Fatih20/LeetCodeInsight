@@ -12,7 +12,7 @@ import {
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
-import PieChartWrapper from "./Peripheral/PieChartWrapper";
+import ChartWrapper from "./Peripheral/ChartWrapper";
 
 export type Diagram7 = { type: string; amount: number }[];
 
@@ -52,7 +52,7 @@ export default function Diagram7() {
   } as ChartData<"pie", number[], unknown>;
 
   return (
-    <PieChartWrapper>
+    <ChartWrapper>
       <Pie
         data={diagramData}
         options={{
@@ -67,6 +67,6 @@ export default function Diagram7() {
           },
         }}
       ></Pie>
-    </PieChartWrapper>
+    </ChartWrapper>
   );
 }

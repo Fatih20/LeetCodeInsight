@@ -14,7 +14,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
-import PieChartWrapper from "./Peripheral/PieChartWrapper";
+import ChartWrapper from "./Peripheral/ChartWrapper";
 
 export type Diagram4 = {
   number: number;
@@ -59,7 +59,7 @@ export default function Diagram4() {
   };
 
   return (
-    <div className="w-full h-full">
+    <ChartWrapper whatToShow={[false, false]}>
       <Line
         options={{
           responsive: true,
@@ -108,6 +108,6 @@ export default function Diagram4() {
         }}
         data={dataDiagram}
       />
-    </div>
+    </ChartWrapper>
   );
 }

@@ -10,6 +10,7 @@ import Diagram4 from "../Diagram4";
 import Diagram5 from "../Diagram5";
 import Diagram15 from "../Diagram15";
 import Diagram8 from "../Diagram8";
+import Diagram13 from "../Diagram13";
 import Diagram6 from "../Diagram6";
 import Diagram10 from "../Diagram10";
 import Diagram11 from "../Diagram11";
@@ -40,6 +41,8 @@ function Diagrams({ nth }: { nth: number }) {
       return <Diagram11 />;
     case 12:
       return <Diagram12 />;
+    case 13:
+      return <Diagram13 />;
     case 14:
       return <Diagram14 />;
     case 15:

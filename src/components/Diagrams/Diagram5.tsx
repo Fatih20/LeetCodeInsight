@@ -13,6 +13,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
+import ChartWrapper from "./Peripheral/ChartWrapper";
 
 export type Element5 = {
   tag_name: string;
@@ -38,7 +39,7 @@ ChartJS.register(
 export default function Diagram5() {
   const { data, status } = useQuery<RawDiagramData<Diagram5>>({
     queryFn: async () => await diagramDataFetcher<Diagram5>(5),
-    queryKey: ["fiveDiagram"],
+    queryKey: ["fifthDiagram"],
   });
 
   if (status !== "success" || !data) {
@@ -100,7 +101,7 @@ export default function Diagram5() {
   };
 
   return (
-    <div className="w-full h-full">
+    <ChartWrapper>
       <Bar
         options={{
           scales: {
@@ -134,7 +135,7 @@ export default function Diagram5() {
           plugins: {
             tooltip: {},
             legend: {
-              position: "right" as const,
+              position: "top" as const,
               labels: {
                 color: "#fff",
                 pointStyle: "circle",
@@ -182,7 +183,7 @@ export default function Diagram5() {
           maintainAspectRatio: false,
           plugins: {
             legend: {
-              position: "right" as const,
+              position: "top" as const,
               labels: {
                 color: "#fff",
                 pointStyle: "circle",
@@ -198,6 +199,6 @@ export default function Diagram5() {
         }}
         data={diagramDislike}
       />
-    </div>
+    </ChartWrapper>
   );
 }

@@ -13,6 +13,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
+import ChartWrapper from "./Peripheral/ChartWrapper";
 
 ChartJS.register(
   CategoryScale,
@@ -56,20 +57,18 @@ export default function Diagram15() {
         data: dataP.map(({ max_ratio }) => max_ratio),
         colors: "#ffffff",
         backgroundColor: colors[3],
-        hidden: true,
       },
       {
         label: "Min",
         data: dataP.map(({ min_ratio }) => min_ratio),
         colors: "#ffffff",
         backgroundColor: colors[0],
-        hidden: true,
       },
     ],
   };
 
   return (
-    <div className="w-full h-full">
+    <ChartWrapper>
       <Bar
         options={{
           scales: {
@@ -103,7 +102,7 @@ export default function Diagram15() {
           plugins: {
             tooltip: {},
             legend: {
-              position: "right" as const,
+              position: "top" as const,
               labels: {
                 color: "#fff",
                 pointStyle: "circle",
@@ -119,6 +118,6 @@ export default function Diagram15() {
         }}
         data={diagramLike}
       />
-    </div>
+    </ChartWrapper>
   );
 }

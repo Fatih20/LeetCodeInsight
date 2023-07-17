@@ -13,6 +13,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
+import ChartWrapper from "./Peripheral/ChartWrapper";
 
 ChartJS.register(
   CategoryScale,
@@ -134,7 +135,7 @@ export default function Diagram11() {
   };
 
   return (
-    <div className="w-full h-full">
+    <ChartWrapper>
       <Bar
         options={{
           scales: {
@@ -168,7 +169,7 @@ export default function Diagram11() {
           plugins: {
             tooltip: {},
             legend: {
-              position: "right" as const,
+              position: "top" as const,
               labels: {
                 color: "#fff",
                 pointStyle: "circle",
@@ -216,7 +217,7 @@ export default function Diagram11() {
           maintainAspectRatio: false,
           plugins: {
             legend: {
-              position: "right" as const,
+              position: "top" as const,
               labels: {
                 color: "#fff",
                 pointStyle: "circle",
@@ -232,6 +233,6 @@ export default function Diagram11() {
         }}
         data={diagramDislike}
       />
-    </div>
+    </ChartWrapper>
   );
 }

@@ -12,7 +12,7 @@ import {
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
-import PieChartWrapper from "./Peripheral/PieChartWrapper";
+import ChartWrapper from "./Peripheral/ChartWrapper";
 
 export type Diagram14 = {
   acceptance_rate_category: AcceptanceRateCategory;
@@ -25,7 +25,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function Diagram14() {
   const { data, status } = useQuery<RawDiagramData<Diagram14>>({
     queryFn: async () => await diagramDataFetcher<Diagram14>(14),
-    queryKey: ["thirteenthDiagram"],
+    queryKey: ["fourteenthDiagram"],
   });
 
   if (status !== "success" || !data) {
@@ -116,7 +116,7 @@ export default function Diagram14() {
   } as ChartData<"pie", number[], unknown>;
 
   return (
-    <PieChartWrapper>
+    <ChartWrapper>
       <Pie
         data={diagramDataEasy}
         options={{
@@ -174,6 +174,6 @@ export default function Diagram14() {
           },
         }}
       ></Pie>
-    </PieChartWrapper>
+    </ChartWrapper>
   );
 }
