@@ -15,4 +15,5 @@ export const colors = {
   slate: "#485a6c",
   black: "#4d4d4d",
   black2: "#666666",
+  cocoa2: "#57392d",
 };

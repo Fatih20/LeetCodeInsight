@@ -17,6 +17,8 @@ import Diagram11 from "../Diagram11";
 import Diagram16 from "../Diagram16";
 import Diagram17 from "../Diagram17";
 import Diagram18 from "../Diagram18";
+import Diagram19 from "../Diagram19";
+import Diagram20 from "../Diagram20";
 
 function Diagrams({ nth }: { nth: number }) {
   switch (nth) {
@@ -56,6 +58,10 @@ function Diagrams({ nth }: { nth: number }) {
       return <Diagram17 />;
     case 18:
       return <Diagram18 />;
+    case 19:
+      return <Diagram19 />;
+    case 20:
+      return <Diagram20 />;
     default:
       return <></>;
       break;

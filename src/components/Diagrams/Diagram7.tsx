@@ -39,13 +39,13 @@ export default function Diagram7() {
       {
         label: "Amount of Problems (n)",
         data: processedData.map(({ amount }) => amount),
-        backgroundColor: [colors.black, colors.yellow],
+        backgroundColor: [colors.cocoa, colors.yellow],
         borderWidth: 0,
       },
       {
         label: "Percentage of Problems (%)",
         data: processedData.map(({ amount }) => (amount / sum) * 100),
-        backgroundColor: [colors.black, colors.yellow],
+        backgroundColor: [colors.cocoa, colors.yellow],
         borderWidth: 2,
       },
     ],

@@ -168,7 +168,7 @@ export default function Diagram17() {
                   usePointStyle: true,
                 },
                 title: {
-                  text: "Problem number and log(number of submissions)",
+                  text: "Counting Frequencies of Difficulties in Problem Sectors of Size 10",
                   color: "#fff",
                   position: "center",
                   display: true,

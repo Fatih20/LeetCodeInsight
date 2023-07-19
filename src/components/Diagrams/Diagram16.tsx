@@ -63,7 +63,7 @@ export default function Diagram16() {
         label: "Number of Easy Problems",
         data: dataFree.map(({ free_count }) => free_count),
         colors: "#ffffff",
-        backgroundColor: colors.black,
+        backgroundColor: colors.cocoa,
         hidden: true,
       },
       {
@@ -95,7 +95,7 @@ export default function Diagram16() {
         label: "Number of Easy Problems",
         data: dataPremium.map(({ free_count }) => free_count),
         colors: "#ffffff",
-        backgroundColor: colors.black,
+        backgroundColor: colors.cocoa,
         hidden: true,
       },
       {

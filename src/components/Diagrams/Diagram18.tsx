@@ -69,8 +69,8 @@ export default function Diagram18() {
         label: "Number of Free Problems in Sector",
         data: dataP.map(({ free_count }) => free_count),
         colors: "#ffffff",
-        backgroundColor: colors.black,
-        borderColor: colors.black,
+        backgroundColor: colors.cocoa,
+        borderColor: colors.cocoa,
         tension: 0.5,
       },
       {
@@ -86,8 +86,8 @@ export default function Diagram18() {
         label: "Free-Total Ratio in Sector",
         data: dataP.map(({ free_ratio }) => free_ratio),
         colors: "#ffffff",
-        backgroundColor: colors.black2,
-        borderColor: colors.black2,
+        backgroundColor: colors.cocoa2,
+        borderColor: colors.cocoa2,
         tension: 0.5,
       },
       {
@@ -148,7 +148,7 @@ export default function Diagram18() {
                   usePointStyle: true,
                 },
                 title: {
-                  text: "Problem number and log(number of submissions)",
+                  text: "Counting Frequencies of Premium Problems in Problem Sectors of Size 10",
                   color: "#fff",
                   position: "center",
                   display: true,
