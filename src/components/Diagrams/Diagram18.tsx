@@ -17,17 +17,15 @@ import { Line } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
 import ChartWrapper from "./Peripheral/ChartWrapper";
 
-export type Diagram17 = {
+export type Diagram18 = {
   sector_number: number;
   lower_limit: number;
   upper_limit: number;
   total_count: number;
-  easy_count: number;
-  medium_count: number;
-  hard_count: number;
-  easy_ratio: number;
-  medium_ratio: number;
-  hard_ratio: number;
+  free_count: number;
+  premium_count: number;
+  premium_ratio: number;
+  free_ratio: number;
 }[];
 
 ChartJS.register(
@@ -39,10 +37,10 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-export default function Diagram17() {
-  const { data, status } = useQuery<RawDiagramData<Diagram17>>({
-    queryFn: async () => await diagramDataFetcher<Diagram17>(17),
-    queryKey: ["seventeenthDiagram"],
+export default function Diagram18() {
+  const { data, status } = useQuery<RawDiagramData<Diagram18>>({
+    queryFn: async () => await diagramDataFetcher<Diagram18>(18),
+    queryKey: ["eighteenthDiagram"],
   });
 
   if (status !== "success" || !data) {
@@ -68,16 +66,16 @@ export default function Diagram17() {
         hidden: true,
       },
       {
-        label: "Number of Easy Problems in Sector",
-        data: dataP.map(({ easy_count }) => easy_count),
+        label: "Number of Free Problems in Sector",
+        data: dataP.map(({ free_count }) => free_count),
         colors: "#ffffff",
-        backgroundColor: colors.lime,
-        borderColor: colors.lime,
+        backgroundColor: colors.black,
+        borderColor: colors.black,
         tension: 0.5,
       },
       {
-        label: "Number of Medium Problems in Sector",
-        data: dataP.map(({ medium_count }) => medium_count),
+        label: "Number of Premium Problems in Sector",
+        data: dataP.map(({ premium_count }) => premium_count),
         colors: "#ffffff",
         backgroundColor: colors.yellow,
         borderColor: colors.yellow,
@@ -85,37 +83,19 @@ export default function Diagram17() {
         hidden: true,
       },
       {
-        label: "Number of Hard Problems in Sector",
-        data: dataP.map(({ hard_count }) => hard_count),
+        label: "Free-Total Ratio in Sector",
+        data: dataP.map(({ free_ratio }) => free_ratio),
         colors: "#ffffff",
-        backgroundColor: colors.red,
-        borderColor: colors.red,
-        tension: 0.5,
-        hidden: true,
-      },
-      {
-        label: "Easy-Total Ratio in Sector",
-        data: dataP.map(({ easy_ratio }) => easy_ratio),
-        colors: "#ffffff",
-        backgroundColor: colors.lime2,
-        borderColor: colors.lime2,
+        backgroundColor: colors.black2,
+        borderColor: colors.black2,
         tension: 0.5,
       },
       {
-        label: "Medium-Total Ratio in Sector",
-        data: dataP.map(({ medium_ratio }) => medium_ratio),
+        label: "Premium-Total Ratio in Sector",
+        data: dataP.map(({ premium_ratio }) => premium_ratio),
         colors: "#ffffff",
         backgroundColor: colors.yellow2,
         borderColor: colors.yellow2,
-        tension: 0.5,
-        hidden: true,
-      },
-      {
-        label: "Hard-Total Ratio in Sector",
-        data: dataP.map(({ hard_ratio }) => hard_ratio),
-        colors: "#ffffff",
-        backgroundColor: colors.red2,
-        borderColor: colors.red2,
         tension: 0.5,
         hidden: true,
       },

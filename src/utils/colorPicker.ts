@@ -13,5 +13,6 @@ export const colors = {
   cocoa: "#715344",
   silver: "#abacae",
   slate: "#485a6c",
-  black: "#333333",
+  black: "#4d4d4d",
+  black2: "#666666",
 };
