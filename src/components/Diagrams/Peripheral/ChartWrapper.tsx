@@ -3,9 +3,11 @@ import React from "react";
 export default function ChartWrapper({
   children,
   whatToShow = [true, true],
+  fullWidth = false,
 }: {
   children: React.ReactNode;
   whatToShow?: boolean[];
+  fullWidth?: boolean;
 }) {
   return (
     <div className="w-full flex flex-col items-center justify-start gap-4 h-full">
@@ -23,7 +25,11 @@ export default function ChartWrapper({
           </li>
         )}
       </ul>
-      <div className="flex w-4/5 flex-col items-center justify-start gap-5 h-full">
+      <div
+        className={`flex ${
+          fullWidth ? "w-full px-2 box-border" : "w-4/5"
+        } flex-col items-center justify-start gap-5 h-full`}
+      >
         {children}
       </div>
     </div>

@@ -14,7 +14,7 @@ export default function Home() {
   const [showFatih, setShowFatih] = useState(false);
   const selectedViz = useSelectedVisualization();
 
-  const target = 15;
+  const target = 20;
   useInterval(
     () => {
       setShadeAmount((prev) => prev + 1);
@@ -22,7 +22,7 @@ export default function Home() {
         setShowFatih(true);
       }
     },
-    200,
+    125,
     { paused: shadeAmount >= target }
   );
 

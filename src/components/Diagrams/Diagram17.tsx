@@ -11,14 +11,23 @@ import {
   Title,
   Tooltip,
   Legend,
+  TimeScale,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { colors } from "@/utils/colorPicker";
 import ChartWrapper from "./Peripheral/ChartWrapper";
 
-export type Diagram4 = {
-  number: number;
-  log_number_of_submission: number;
+export type Diagram17 = {
+  sector_number: number;
+  lower_limit: number;
+  upper_limit: number;
+  total_count: number;
+  easy_count: number;
+  medium_count: number;
+  hard_count: number;
+  easy_ratio: number;
+  medium_ratio: number;
+  hard_ratio: number;
 }[];
 
 ChartJS.register(
@@ -30,10 +39,10 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-export default function Diagram4() {
-  const { data, status } = useQuery<RawDiagramData<Diagram4>>({
-    queryFn: async () => await diagramDataFetcher<Diagram4>(4),
-    queryKey: ["fourthDiagram"],
+export default function Diagram17() {
+  const { data, status } = useQuery<RawDiagramData<Diagram17>>({
+    queryFn: async () => await diagramDataFetcher<Diagram17>(17),
+    queryKey: ["seventeenthDiagram"],
   });
 
   if (status !== "success" || !data) {
@@ -42,18 +51,37 @@ export default function Diagram4() {
 
   const dataP = data.allDiagrams[0].data;
 
-  const labels = dataP.map(({ number }) => number);
+  const labels = dataP.map(
+    ({ lower_limit, upper_limit }) => `${lower_limit}-${upper_limit}`
+  );
 
   const dataDiagram = {
     labels,
     datasets: [
       {
-        label: "log(number of submissions)",
-        data: dataP.map(
-          ({ log_number_of_submission }) => log_number_of_submission
-        ),
+        label: "Number of Problems in Sector",
+        data: dataP.map(({ total_count }) => total_count),
         colors: "#ffffff",
-        backgroundColor: colors.grape,
+        backgroundColor: colors.blueberry,
+      },
+      {
+        label: "Number of Easy Problems in Sector",
+        data: dataP.map(({ easy_count }) => easy_count),
+        colors: "#ffffff",
+        backgroundColor: colors.lime,
+        borderColor: colors.lime,
+      },
+      {
+        label: "Number of Medium Problems in Sector",
+        data: dataP.map(({ medium_count }) => medium_count),
+        colors: "#ffffff",
+        backgroundColor: colors.yellow,
+      },
+      {
+        label: "Number of Hard Problems in Sector",
+        data: dataP.map(({ hard_count }) => hard_count),
+        colors: "#ffffff",
+        backgroundColor: colors.red,
       },
     ],
   };
@@ -64,9 +92,10 @@ export default function Diagram4() {
         options={{
           responsive: true,
           maintainAspectRatio: false,
-          // indexAxis: "y" as const,
+          indexAxis: "y" as const,
           scales: {
             x: {
+              type: "time",
               border: {
                 color: "#fff",
               },
