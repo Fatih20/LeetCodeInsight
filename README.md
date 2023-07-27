@@ -1,4 +1,4 @@
-### 20 Shades of LeetCode
+# 20 Shades of LeetCode
 
 Analysis and diagrams of Leetcode's problem data.
 
